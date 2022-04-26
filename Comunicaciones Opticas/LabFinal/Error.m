@@ -1,0 +1,24 @@
+% SN = 189.371;
+% Pe = (1-erf((0.354*sqrt(SN))))/2;
+% disp('La tasa de error es:',num2str(Pe));
+c = 3e8; %Velocidad de la luz
+k = 1.3806488e-23; %Constante de boltzman
+h = 6.62606957e-34; %Constante de plank;
+e = 1.602176565e-19; % Constante de carga;
+Pe = 1e-4; %Tasa de Error de Bits
+V = 1e-6;
+DF = 1/1e-6; %Se supone...
+T = 300;
+Lambda = 0.82e-6;
+F = c/Lambda;
+RL = 100; % Resistencia de carga
+n = 1;
+SN = ((erfinv(1-Pe*2))/0.354)^2; % Relación señal a ruido
+PNT = 4*k*T*DF; % Potencia de Ruido Térmico
+PES = PNT*SN; % Potencia Eléctrica de la señal
+Is = sqrt(PES/RL); %Corriente sobre el fotodetector
+PNS = 2*e*DF*Is*RL;
+p = (n*e*Lambda)/(h*c); %Responsividad
+Prx = Is/p; %Potencia óptica de entrada
+Rp = Prx/(h*F); %Número de fotones por segundo
+Fpb = Rp*V; %Número de fotones por bit

@@ -1,0 +1,5 @@
+1) Launch Matlab
+2) Set the current folder to be the folder containing the files of the software.
+3) Type EXCELL_RSC_GUI from the Matlab prompt.
+
+Software developed by Lorenzo Luini and Carlo Capsoni - Politecnico di Milano
